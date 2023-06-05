@@ -1,0 +1,14 @@
+BEGIN
+INPUT score= nh?p di?m
+if(score < 35)
+  lO?I E
+elseif(score>=35 && score <45)
+ LO?I D
+elseif(score>=45 && score <60)
+ LO?I C
+elseif(score>=60 && score <75)
+ LO?I B
+elseif(score>=75
+ LO?I A
+DISPLAY SCORE
+END

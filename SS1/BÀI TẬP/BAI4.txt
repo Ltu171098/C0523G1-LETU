@@ -1,0 +1,13 @@
+BEGIN
+  INPUT N,a1,a2,..aN
+  Max=a1
+  i=1
+  WHILE i<=N
+  DO
+    IF ai>Max
+    Max=ai
+  ENDIF
+  i=i+1
+  EDNDO
+DISPLAY "Max"
+AND
