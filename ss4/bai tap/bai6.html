@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table boder="1">
+  <tr>
+    <td colspan="4">
+      <label for="display"></label><input type="text" id="display" readonly="readonly" placeholder="0"/>
+    </td>
+  </tr>
+  <tr>
+    <td><button onclick="appendNumber('7')" style="width: 40px; height: 25px;">7</button></td>
+    <td><button onclick="appendNumber('8')" style="width: 40px; height: 25px;">8</button></td>
+    <td><button onclick="appendNumber('9')" style="width: 40px; height: 25px;">9</button></td>
+    <td><button onclick="appendNumber('+')" style="width: 40px; height: 25px;">+</button></td>
+  </tr>
+  <tr>
+    <td><button onclick="appendNumber('4')" style="width: 40px; height: 25px;">4</button></td>
+    <td><button onclick="appendNumber('5')" style="width: 40px; height: 25px;">5</button></td>
+    <td><button onclick="appendNumber('6')" style="width: 40px; height: 25px;">6</button></td>
+    <td><button onclick="appendNumber('-')" style="width: 40px; height: 25px;">-</button></td>
+  </tr>
+  <tr>
+    <td><button onclick="appendNumber('1')" style="width: 40px; height: 25px;">1</button></td>
+    <td><button onclick="appendNumber('2')" style="width: 40px; height: 25px;">2</button></td>
+    <td><button onclick="appendNumber('3')" style="width: 40px; height: 25px;">3</button></td>
+    <td><button onclick="appendNumber('*')" style="width: 40px; height: 25px;">x</button></td>
+  </tr>
+  <tr>
+    <td><button onclick="appendNumber('0')" style="width: 40px; height: 25px;">0</button></td>
+    <td><button onclick="appendNumber('.')" style="width: 40px; height: 25px;">.</button></td>
+    <td><button id="equal" onclick="calculate()" style="width: 40px; height: 25px;">=</button></td>
+    <td><button onclick="appendNumber('/')" style="width: 40px; height: 25px;">/</button></td>
+  </tr>
+  <tr>
+    <td colspan="4"><button id="clear" onclick="clearDisplay()" style="width: 230px; height: 25px;">Clear</button></td>
+  </tr>
+</table>
+<style>
+  table {
+    margin: 0 auto;
+    background-color: #36393e;
+  }
+
+  button {
+    border-radius: 5px;
+  }
+
+  td {
+    padding: 5px;
+    text-align: center;
+  }
+
+  #display {
+    text-align: right; width: 230px;
+    font-size: 2em;
+    font-weight: 100;
+    height: 30px;
+    border-radius: 3px;
+  }
+
+  #display {
+    width: 150px;
+  }
+
+  #clear {
+    background-color: #ffc800;
+    color: #9d1111;
+  }
+
+  #equal {
+    background-color: rgba(202, 27, 27, 0.92);
+    color: rgb(157, 145, 17);
+  }
+</style>
+<script>
+  function appendNumber(number) { //appendNumber(number) dùng để ghi số từ nút bấm lên ô Display và gán giá trị tương tự cho display.value
+    let display = document.getElementById('display');
+    display.value += number; //+= dùng để ghi thêm số vừa được bấm vào bên tay phải của ô Display. Vd display.value đang là 5 mà mình ấn thêm số 6 thì màn hình Display sẽ hiển thị 56
+  }
+
+  function clearDisplay() { //clearDisplay dùng để xóa dữ liệu trong ô Display
+    let display = document.getElementById('display');
+    display.value = '';
+  }
+
+  function calculate() { //calculate dùng để tính toán các giá trị trên ô Display
+    let display = document.getElementById('display');
+    let expression = display.value;
+
+    try {
+       //eval: evaluate
+      display.value = eval(expression); //Nếu ko có lỗi gì thì sẽ hiển thị expession lên ô Display
+    } catch (error) {
+      display.value = 'Error'; //Hiển thị chữ Error khi biểu thức gặp lỗi, ví dụ: chia cho 0 hoặc lỗi cú pháp
+    }
+  }
+</script>
+</body>
+</html>
