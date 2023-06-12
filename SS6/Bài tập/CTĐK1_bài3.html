@@ -5,6 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+<p>Vui lòng nhập một số nguyên bất kỳ:</p>
+<label for="input-number"></label><input type="number" id="input-number">
+<button onclick="checkInteger()">Kiểm tra</button>
+<p id="result"></p>
 
+<script>
+  function checkInteger() {
+    const number = document.getElementById("input-number").value;
+    if (number > 0) {
+      document.getElementById("result").innerHTML = "Số bạn vừa nhập là số dương.";
+    } else {
+      document.getElementById("result").innerHTML = "Số bạn vừa nhập là số âm hoặc bằng 0.";
+    }
+  }
+</script>
 </body>
 </html>
