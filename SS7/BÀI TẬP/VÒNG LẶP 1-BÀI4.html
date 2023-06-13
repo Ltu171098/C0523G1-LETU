@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5</h2>
+
+<p>Nhập vào số n:</p>
+<label for="inputNumber"></label><input id="inputNumber" type="text">
+<button onclick="findFibonacci()">Tìm</button>
+
+<p>Số đầu tiên trong dãy fibonacci chia hết cho 5 là:</p>
+<p id="output"></p>
+
+<script>
+    function findFibonacci() {
+        const n = parseInt(document.getElementById("inputNumber").value);
+
+        let a = 0;
+        let b = 1;
+
+        for (let i = 2; i <= n; i++) {
+            const c = a + b;
+            a = b;
+            b = c;
+
+            if (c % 5 === 0) {
+                document.getElementById("output").innerHTML = c;
+                return;
+            }
+        }
+
+        document.getElementById("output").innerHTML = "Không tìm thấy số chia hết cho 5 trong dãy fibonacci từ 0 tới " + n;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20 SỐ ĐẦU TIÊN TRONG DÃY FOBONACCI</title>
+</head>
+<body>
+<h1>FIBONACCI</h1>
+<div id="fibonacci"></div>
+<script>
+    let n1 = 0, n2 = 1, nextTerm;
+    let output = document.getElementById("fibonacci");
+
+    for (let i = 1; i <= 20; i++) {
+        output.innerHTML += "<p>" + n1 + "</p>";
+        nextTerm = n1 + n2;
+        n1 = n2;
+        n2 = nextTerm;
+    }
+</script>
+</body>
+</html>

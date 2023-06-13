@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Tính tổng 30 số chia hết cho 7 đầu tiên</h1>
+<script>
+    let count = 0; // Số lượng số chia hết cho 7 đã được tìm thấy
+    let sum = 0; // Tổng các số chia hết cho 7
+
+    for (let i = 1; count <30; i++) { // Lặp đến khi tìm được 30 số chia hết cho 7
+        if (i % 7 === 0) { // Nếu i chia hết cho 7
+            count++; // Tăng biến đếm
+            sum += i; // Cộng giá trị của i vào tổng
+        }
+    }
+
+    document.write("Tổng của 30 số chia hết cho 7 đầu tiên là: " + sum); // Hiển thị kết quả
+</script>
+</body>
+</html>

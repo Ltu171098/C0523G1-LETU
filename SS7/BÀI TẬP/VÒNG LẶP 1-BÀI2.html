@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NHIỆT ĐỘ</title>
+</head>
+<body>
+<input type="button" value="Nhập nhiệt độ" onclick="checkTemp()">
+
+<script>
+    function checkTemp() {
+        const currentTemp = prompt("Nhập nhiệt độ hiện tại:");
+
+        if (currentTemp > 100) {
+            alert("Nhiệt độ quá cao, vui lòng giảm nhiệt độ.");
+        }
+
+        if (currentTemp <20) {
+            window.location.href = "tang_nhiet_do.html";
+        }
+    }
+</script>
+</body>
+</html>
