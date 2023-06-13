@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-
+<button onclick="startGame()">Chơi</button>
+<script>
+    function startGame() {
+        let min = parseInt(prompt("Nhập giá trị số nhỏ nhất trong khoảng muốn đoán:"));
+        let max = parseInt(prompt("Nhập giá trị số lớn nhất trong khoảng muốn đoán"));
+        let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        let guessNum = parseInt(prompt("Hãy đoán số trong khoảng từ " + min + " đến " + max));
+        while (guessNum !== randomNum) {
+            if (guessNum > randomNum) {
+                guessNum = parseInt(prompt("Số bạn đoán lớn hơn rồi, hãy đoán lại"));
+            } else {
+                guessNum = parseInt(prompt("Số bạn đoán bé thua rồi, hãy đoán lại"));
+            }
+        }
+        alert("Chúc mừng bạn, bạn đã đoán đúng!");
+    }
+</script>
 </body>
 </html>
