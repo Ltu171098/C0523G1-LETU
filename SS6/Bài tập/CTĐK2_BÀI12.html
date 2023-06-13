@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Công thức tính lãi suất kép ngân hàng cơ bản</h3>
+<p><strong>A = P*(1 + r)^n</strong></p>
+<p>Trong đó:</p>
+<p>- A là số tiền mà quý khách nhận được trong tương lai.</p>
+<p>- P là số tiền gốc quý khách bỏ ra để đầu tư ban đầu.</p>
+<p>- r là lãi suất hằng năm.</p>
+<p>- n là số chu kỳ thực hiện lãi kép.</p>
+<hr>
+<label for="P">Nhập vào số tiền gốc: </label>
+<input style="color: red" id="P" type="number" value="1000000000"><br>
+<label for="r">Nhập vào lãi suất ngân hàng % theo năm: </label>
+<input style="color: red" id="r" type="number" value="6"><span>%</span><br>
+<label for="n">Nhập vào số năm bạn gửi tiết kiệm: </label>
+<input style="color: red" id="n" type="number" value="5"><span>năm</span>
+<hr>
+<input type="button" value="Tính tiền" onclick="tinhTien()">
+<p id="result"></p>
+
+<script>
+    function tinhTien(){
+        let p=+document.getElementById('P').value;
+        let r=+document.getElementById('r').value;
+        let n=+document.getElementById('n').value;
+        let result=(p*Math.pow((1+r/100),n)).toFixed(2)
+        document.getElementById('result').innerHTML=`Số tiền mà bạn nhận được trong tương lai: <span style="font-weight: bold"> ${result} </span> `
+    }
+</script>
+</body>
+</html>
