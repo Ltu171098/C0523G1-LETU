@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CHUYỂN KÝ TỰ THƯỜNG THÀNH IN HOA</title>
+</head>
+<body>
+<script>
+        let input = prompt("Nhập chuỗi:");
+            input = input.split('');
+          let result = [];
+            let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let lower = 'abcdefghijklmnopqrstuvwxyz';
+            for (let i = 0; i < input.length; i++) {
+              if (upper.includes(input[i])) {
+                if (lower.includes(input[i])) {
+                  result.push(input[i].toUpperCase());
+                } else {
+                  result.push(input[i]);
+                }
+              } else {
+                result.push(input[i].toLowerCase());
+              }
+            }
+        document.write(result.join(''));
+</script>
+</body>
+</html>
