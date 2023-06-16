@@ -5,6 +5,16 @@
     <title>$Title$</title>
 </head>
 <body>
+<p>Nhập vào một mảng ký tự:</p>
 
+<label for="inputArr"></label><input type="text" id="inputArr">
+<button onclick="replaceChars()">Thay thế</button>
+<p>Mảng ký tự sau khi thay thế: <span id="outputArr"></span></p>
+<script>
+    function replaceChars() {
+        let inputArr = document.getElementById("inputArr").value;
+        document.getElementById("outputArr").innerHTML = inputArr.replace(/-/g, "_");
+    }
+</script>
 </body>
 </html>
