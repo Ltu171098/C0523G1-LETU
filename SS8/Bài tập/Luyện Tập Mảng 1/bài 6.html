@@ -5,6 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        let value = parseInt(prompt("nhập một giá trị số nguyên ở vị trí " + i + ":"));
+        while (isNaN(value)) {
+            value = parseInt(prompt("đàu vào không hợp lệ. Vui lòng nhập một giá trị cho vị trí" + i + ":"));
+        }
+        arr.push(value);
+    }
+    let V = parseInt(prompt("Nhập một số để tìm kiếm:"));
+    while (isNaN(V)) {
+        V = parseInt(prompt("Đầu vào không hợp lệ. Vui lòng nhập số để tìm kiếm:"));
+    }
+    let index = arr.indexOf(V);
+    if (index === -1) {
+        document.write(V + " is not in the array");
+    } else {
+        document.write(V + " is in the array at position " + index);
+    }
+</script>
 </body>
 </html>
