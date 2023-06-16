@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
-
+<h1> giá trị lớn nhất và trung bình của mảng</h1>
+<button onclick="getMaxAndAverage()">Hiển thị</button>
+<script >
+  let myArray =[5, 7, 2, 8, 10];
+  function getMaxAndAverage() {
+      let largest = myArray[0];
+      let sum = 0;
+      let len = myArray.length;
+      for(let i = 1; i < len; i++) {
+          if(myArray[i] > largest) {
+              largest = myArray[i];
+          }
+          sum += myArray[i];
+      }
+      let average = sum / len;
+      document.writeln("Giá trị lớn nhất trong mảng là: " + largest + "<br>");
+      document.writeln("Giá trị trung bình của các phần tử trong mảng là: " + average);
+  }
+</script>
 </body>
 </html>
