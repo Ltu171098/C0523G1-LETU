@@ -5,6 +5,21 @@
     <title>Title</title>
 </head>
 <body>
+<p id="result"></p>
 
+<script>
+    let myArray = [3, 7, 1, 9, 5, 2, 8, 4, 6, 10];
+    let max = myArray[0];
+    let maxPosition = 0;
+
+    for (let i = 1; i < myArray.length; i++) {
+        if (myArray[i] > max) {
+            max = myArray[i];
+            maxPosition = i;
+        }
+    }
+
+    document.getElementById("result").innerHTML = "Phần tử có giá trị lớn nhất trong mảng là " + max + " tại vị trí " + maxPosition;
+</script>
 </body>
 </html>
