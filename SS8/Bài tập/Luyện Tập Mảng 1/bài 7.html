@@ -5,6 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+        let arr = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+        let V = parseInt(prompt("nhập số để tìm kiếm:"));
+        let index = arr.indexOf(V);
+        if (index !== -1) {
+        for (let i = index; i <arr.length-1; i++) {
+        arr[i] = arr[i+1];
+    }
+        arr[arr.length-1] = 0;
+        document.write("V có trong mảng. Mảng là: " + arr.join(", ") );
+    } else {
+        document.write("V không có trong mảng. Mảng là: [" + arr.join(", ") + "]");
+    }
+</script>
 </body>
 </html>
