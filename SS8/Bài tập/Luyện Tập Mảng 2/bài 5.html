@@ -5,6 +5,28 @@
     <title>$Title$</title>
 </head>
 <body>
-$END$
+<p>Nhập vào chuỗi thứ nhất:</p>
+
+<label for="inputStr1"></label><input type="text" id="inputStr1">
+
+<p>Nhập vào chuỗi thứ hai:</p>
+
+<label for="inputStr2"></label><input type="text" id="inputStr2">
+
+<button onclick="compareStrings()">So sánh</button>
+
+<p id="output"></p>
+
+<script>
+    function compareStrings() {
+        let str1 = document.getElementById("inputStr1").value;
+        let str2 = document.getElementById("inputStr2").value;
+        if (str1 === str2) {
+            document.getElementById("output").innerHTML = "Hai chuỗi giống nhau!";
+        } else {
+            document.getElementById("output").innerHTML = "Hai chuỗi khác nhau!";
+        }
+    }
+</script>
 </body>
 </html>

@@ -5,6 +5,20 @@
     <title>$Title$</title>
 </head>
 <body>
-$END$
+<p>Nhập vào một chuỗi:</p>
+
+<label for="inputStr"></label><input type="text" id="inputStr">
+
+<button onclick="countWords()">Đếm</button>
+
+<p>Số từ trong chuỗi: <span id="wordCount"></span></p>
+
+<script>
+    function countWords() {
+        let str = document.getElementById("inputStr").value;
+        let words = str.match(/\b\w+\b/g);
+        document.getElementById("wordCount").innerHTML = words ? words.length : 0;
+    }
+</script>
 </body>
 </html>
