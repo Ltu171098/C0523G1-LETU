@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    let text = ['l', 'i', 'e', 'n'];
+    let nguyenAm = 'ueoai';
+    let count = 0;
+    for (let i = 0; i < text.length; i++) {
+        if (nguyenAm.includes(text[i])) {
+            count++
+        }
+    }
+    document.write("Tổng số nguyên âm trong chuỗi là: " + count);
+</script>
 </body>
 </html>
