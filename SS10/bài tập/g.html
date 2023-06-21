@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class Mobile {
+        constructor() {
+            this.battery = 100;
+            this.draftMessages = [];
+            this.inboxMessages = [];
+            this.sentMessages = [];
+            this.isOn = false;
+        }
+
+        checkPowerStatus() {
+            return this.isOn;
+        }
+
+        turnOn() {
+            if (!this.isOn) {
+                this.isOn = true;
+                console.log("Điện thoại đã bật");
+            } else {
+                console.log("Điện thoại đã được bật sẵn");
+            }
+        }
+
+        turnOff() {
+            if (this.isOn) {
+                this.isOn = false;
+                console.log("Điện thoại đã tắt");
+            } else {
+                console.log("Điện thoại đã được tắt sẵn");
+            }
+        }
+
+        chargeBattery() {
+            if (this.isOn) {
+                if (this.battery < 100) {
+                    this.battery += 10;
+                    console.log(`Pin đã được sạc. Pin hiện tại: ${this.battery}`);
+                } else {
+                    console.log("Pin đã đầy");
+                }
+            } else {
+                console.log("Bạn cần bật điện thoại trước khi sạc pin");
+            }
+        }
+
+        composeMessage(message) {
+            if (this.isOn) {
+                if (this.battery > 0) {
+                    this.draftMessages.push(message);
+                    this.battery--;
+                    console.log("Tin nhắn đã được soạn");
+                } else {
+                    console.log("Pin yếu. Vui lòng sạc pin trước khi soạn tin");
+                }
+            } else {
+                console.log("Điện thoại không được bật. Vui lòng bật điện thoại trước khi soạn tin");
+            }
+        }
+
+        receiveMessage(message) {
+            if (this.isOn) {
+                if (this.battery > 0) {
+                    this.inboxMessages.push(message);
+                    this.battery--;
+                    console.log("Tin nhắn đã được nhận");
+                } else {
+                    console.log("Pin yếu. Vui lòng sạc pin trước khi nhận tin");
+                }
+            } else {
+                console.log("Điện thoại không được bật. Vui lòng bật điện thoại trước khi nhận tin");
+            }
+        }
+
+        sendMessage(message, mobile) {
+            if (this.isOn && mobile.isOn) {
+                if (this.battery > 0 && mobile.battery > 0) {
+                    this.sentMessages.push(message);
+                    mobile.receiveMessage(message);
+                    this.battery--;
+                    console.log("Tin nhắn đã được gửi");
+                } else {
+                    console.log("Pin yếu. Vui lòng sạc pin trước khi gửi tin");
+                }
+            } else {
+                console.log("Không thể gửi tin nhắn. Vui lòng kiểm tra trạng thái điện thoại");
+            }
+        }
+
+        viewInbox() {
+            if (this.isOn) {
+                console.log("Hộp thư đến:");
+                for (let message of this.inboxMessages) {
+                    console.log(message);
+                }
+            } else {
+                console.log("Điện thoại không được bật. Vui lòng bật điện thoại trước khi xem hộp thư");
+            }
+        }
+
+        viewSentMessages() {
+            if (this.isOn) {
+                console.log("Tin nhắn đã gửi:");
+                for (let message of this.sentMessages) {
+                    console.log(message);
+                }
+            } else {
+                console.log("Điện thoại không được bật. Vui lòng bật điện thoại trước khi xem tin đã gửi");
+            }
+        }
+    }
+
+    // Sử dụng lớp Mobile
+    const myPhone = new Mobile();
+    myPhone.turnOn();
+    myPhone.chargeBattery();
+    myPhone.composeMessage("Xin chào!");
+    myPhone.viewInbox();
+
+
+</script>
+</body>
+</html>
