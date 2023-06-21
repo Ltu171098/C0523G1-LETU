@@ -5,6 +5,23 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function giaiThua(x) {
+        let kq;
+        if (x == 0 && x == 1) {
+            kq = 1
+        } else {
+            kq =1;
+            for (let i = 2; i <= x; i++) {
+                kq *=i;
+            }
+        }
+        return kq;
+    }
 
+    let n = parseFloat(prompt('Nhập vào giai thừa muốn tìm (n>=0)'));
+    let ketQua = giaiThua(n);
+    alert(ketQua);
+</script>
 </body>
 </html>

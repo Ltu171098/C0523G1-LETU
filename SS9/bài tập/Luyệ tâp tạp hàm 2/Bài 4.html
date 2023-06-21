@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    let a = +prompt("Nhập vào ký tự")
+    function checkNumber(n) {
+        if (isNaN(n) === false) {
+            return "true";
+        } else {
+            return "false"
+        }
+    }
+    alert(checkNumber(a));
 </body>
 </html>

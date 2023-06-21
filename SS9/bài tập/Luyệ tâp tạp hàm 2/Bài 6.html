@@ -5,6 +5,19 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    let n = +prompt('Nhập vào số bất kỳ:');
+    let ketQua = number(n);
 
+    function number(i) {
+        if (i > 0 && Number.isInteger(i)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    document.write(ketQua);
+</script>
 </body>
 </html>
