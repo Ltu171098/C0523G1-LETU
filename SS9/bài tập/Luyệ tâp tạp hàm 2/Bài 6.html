@@ -10,11 +10,7 @@
     let ketQua = number(n);
 
     function number(i) {
-        if (i > 0 && Number.isInteger(i)) {
-            return true;
-        } else {
-            return false;
-        }
+        return i > 0 && Number.isInteger(i);
     }
 
     document.write(ketQua);
