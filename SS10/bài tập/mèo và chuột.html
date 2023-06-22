@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(name, speed, weight) {
+                this.name = name;
+                this.speed = speed;
+                this.weight = weight;
+            }
+            say(text) {
+            }
+        }
+        class Rat extends Animal {
+            constructor(name, speed, weight,status) {
+                super(name, speed, weight);
+                // thuộc tính mở rộng
+                this.status =status;
+            }
+            // định nghĩa lại hành vi cho phù hợp với chuột
+            say(text) {
+                console.log( this.name +" :chit chít: "+ text)
+            }
+        }
+        class Cat extends Animal{
+            constructor(name, speed, weight) {
+                super(name, speed, weight)
+            }
+            say(text) {
+                console.log( this.name +" :meo meo: "+ text)
+            }
+            eatRat(mouse){
+                if (mouse.status==="song"){
+                    this.say("Ngon quá");
+                    this.weight +=mouse.weight;
+                }else {
+                    this.say("Chết rôi không ăn");
+                }
+            }
+            catchRat(mouse){
+                if (this.speed>mouse.speed){
+                    this.say("Tóm được mi rồi");
+                    this.eatRat(mouse);
+                }else {
+                    mouse.say("Đố mi bắt được tao");
+                }
+            }
+        }
+        // kịch bản sử dụng
+        let jerry1 = new Rat("Jerrry1",5,1,"song");
+        let jerry2 = new Rat("Jerrry2",10,1,"song");
+        let jerry3 = new Rat("Jerrry3",11,1,"song");
+        let jerry4 = new Rat("Jerrry4",4,0,"chet");
+        let jerry5 = new Rat("Jerrry5",3,1,"song");
+        let arr = [jerry1,jerry2,jerry3,jerry4,jerry5]
+        let tom = new Cat("Tom",6,10);
+        for (const rat of arr) {
+            tom.catchRat(rat);
+        }
+        console.log("khối lượng mèo: "+ tom.weight);
+    </script> 
+</body>
+</html>
