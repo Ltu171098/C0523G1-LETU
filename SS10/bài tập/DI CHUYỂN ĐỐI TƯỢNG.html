@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="HERO"></div>
+<script>
+    class SieuNhan {
+        constructor(image, top, left, speed, size) {
+            this.images = image;
+            this.top = top;
+            this.left = left;
+            this.speed = speed;
+            this.size = size;
+            this.moveRight = function () {
+                this.left += 20;
+                setTimeout(this.start.bind(this), this.speed);
+            }
+            this.moveBot = function () {
+                this.top += 20;
+                setTimeout(this.start.bind(this), this.speed);
+            }
+            this.getSieuNhanG = function () {
+                return `<img src="${this.images}" style="position: absolute; top: ${this.top}px; left: ${this.left}px; width: ${this.size}px;" alt="sn">`;
+            }
+        }
+
+        start() {
+            if (this.left < window.innerWidth - this.size) {
+                this.moveRight();
+            } else if (this.top < window.innerHeight - this.size) {
+                this.moveBot()
+            }
+
+            document.getElementById('HERO').innerHTML = this.getSieuNhanG();
+        }
+    }
+
+    let sieuNhan = new SieuNhan("images.png", 200, 200, 30, 10);
+    sieuNhan.start();
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+     class Switch {
+        private boolean state;
+
+        public Switch(){
+            this.state = false; //Khởi tạo trạng thái OFF
+        }
+
+        public void turnOnOff(){
+            this.state = !this.state;
+        }
+
+        public boolean getState(){
+            return this.state;
+        }
+    }
+
+    //Lớp Light
+    public class Light {
+        private boolean status;
+
+        public Light(){
+            this.status = false; //Khởi tạo trạng thái OFF
+        }
+
+        public void setStatus(boolean status){
+        this.status = status;
+    }
+
+    public boolean getStatus(){
+        return this.status;
+    }
+    }
+
+    //Hàm main()
+    public class Main {
+        public static void main(String[] args) {
+        Switch switchBtn = new Switch();
+        Light bulb = new Light();
+
+        //Kết nối công tắc với bóng đèn
+        bulb.setStatus(switchBtn.getState());
+
+        //Tắt công tắc 10 lần và hiển thị trạng thái của bóng đèn
+        for(int i=0; i<10; i++){
+        switchBtn.turnOnOff();
+        bulb.setStatus(switchBtn.getState());
+        if(bulb.getStatus())
+        System.out.println("Bóng đèn đang bật.");
+        else
+        System.out.println("Bóng đèn đang tắt.");
+    }
+    }
+    }
+</script>
+</body>
+</html>
