@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập lương nhân viên</title>
+</head>
+<body>
+<script>
+    let salary = parseFloat(prompt("Nhập lương của nhân viên: "));
+    let tax  ;
+    if (salary >= 15000000) {
+        tax = salary * 0.2;
+    } else if (salary >= 7000000) {
+        tax = salary * 0.1;
+    } else {
+        tax = salary * 0.05;
+    }
+    let net_salary = salary - tax;
+    document.write(`Thuế thu nhập của nhân viên là: ${tax.toFixed(2)} VND </br>`);
+    document.write(`Tổng lương thực nhận là: ${net_salary.toFixed(2)} VND`);
+</script>
+</body>
+</html>
