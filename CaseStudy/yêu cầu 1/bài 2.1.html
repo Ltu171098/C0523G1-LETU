@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label type ="input">Nhập vào một ký tự:</label>
+<label for="input"></label><input type="text" id="input">
+<button onClick="check()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+  function check() {
+    let kiemtra = document.getElementById("input").value.toLowerCase();
+
+    switch (kiemtra) {
+      case 'a':
+      case 'e':
+      case 'i':
+      case 'o':
+      case 'u':
+    }
+      document.getElementById("result").innerText = kiemtra + " là một nguyên âm.";
+      document.getElementById("result").innerText = kiemtra + " là một phụ âm.";
+  }
+</script>
+</body>
+</html>
