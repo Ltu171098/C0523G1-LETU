@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Shop</title>
+</head>
+<body>
+<h1>Coffee Shop Menu</h1>
+<ul id="menu"></ul>
+<p id="total"></p>
+
+<script>
+    const menu = {
+        1: ["Cafe", 20000],
+        2: ["Cam vắt", 25000],
+        3: ["Nước ép cà rốt", 30000],
+        4: ["Nước ép cà chua", 35000],
+        5: ["Nước lọc", 10000],
+        6: ["Nước dừa", 15000]
+    };
+
+    let total = 0;
+    let choice = 0;
+
+    // display menu items
+    for (const item in menu) {
+        const menuItem = `${item}. ${menu[item][0]} - ${menu[item][1]} VND`;
+        const li = document.createElement("li");
+        li.textContent = menuItem;
+        document.getElementById("menu").appendChild(li);
+    }
+
+    while (choice !== 7) {
+        choice = parseInt(prompt("Vui lòng chọn số tương ứng với thức uống bạn muốn gọi:"));
+
+        if (choice === 7) {
+            break;
+        }
+
+        if (menu[choice]) {
+            let quantity = parseInt(prompt("Vui lòng nhập số lượng:"));
+            let price = menu[choice][1] * quantity;
+            const orderItem = `${menu[choice][0]} x ${quantity} = ${price} VND`;
+            total += price;
+
+            // display ordered items
+            const li = document.createElement("li");
+            li.textContent = orderItem;
+            document.getElementById("menu").appendChild(li);
+        } else {
+            alert("Lựa chọn không hợp lệ!");
+        }
+    }
+
+    // display total bill
+    const totalText = `Tổng tiền phải thanh toán là ${total} VND`;
+    document.getElementById("total").textContent = totalText;
+
+</script>
+</body>
+</html>

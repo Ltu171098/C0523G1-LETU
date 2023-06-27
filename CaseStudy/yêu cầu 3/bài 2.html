@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>số nguyên</title>
+</head>
+<body>
+<script>
+    function missingValue(A, B) {
+        let count = {};
+
+        // Đếm số lần xuất hiện của từng phần tử trong mảng A
+        for (let i = 0; i < A.length; i++) {
+            if (count[A[i]] === undefined) {
+                count[A[i]] = 1;
+            } else {
+                count[A[i]]++;
+            }
+        }
+
+        // Tìm các phần tử trong mảng B không xuất hiện trong mảng A
+        let result = [];
+        for (let j = 0; j < B.length; j++) {
+            if (count[B[j]] === undefined) {
+                result.push(B[j]);
+                count[B[j]] = 1;
+            }
+        }
+
+        // Sắp xếp kết quả theo thứ tự tăng dần
+        result.sort(function(a, b) {
+            return a - b;
+        });
+
+        return result;
+    }
+
+    // Sử dụng hàm missingValue để tìm các phần tử xuất hiện trong mảng B nhưng lại không xuất hiện trong mảng A
+    let A = [7,2,5,3,5,3];
+    let B = [7,2,5,4,6,3,5,3];
+
+    let result = missingValue(A, B);
+    console.log(result);
+</script>
+</body>
+</html>

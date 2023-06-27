@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Thức Uống</title>
+</head>
+<body>
+<h1>Menu Thức Uống</h1>
+<ul id="drink-menu"></ul>
+
+<hr>
+
+<button onclick="order()">Đặt hàng</button>
+<p id="total-bill"></p>
+
+<script>
+  let drinkMenu = [
+    ["Cafe", 25000],
+    ["Cam vắt", 20000],
+    ["Nước ép cà rốt", 30000],
+    ["Nước ép cà chua", 35000],
+    ["Nước lọc", 15000],
+    ["Nước dừa", 20000]
+  ];
+
+  let totalBill = 0;
+
+  function order() {
+    let choice = prompt("Vui lòng chọn món (hoặc nhấn 7 để kết thúc đặt hàng): ");
+
+    while (choice !== "7") {
+      let idx = parseInt(choice) - 1;
+      if (idx >= 0 && idx < drinkMenu.length) {
+        let drink = drinkMenu[idx];
+        let qty = prompt(`Bạn đã chọn ${drink[0]}. Nhập số lượng: `);
+        let price = drink[1] * parseInt(qty);
+        console.log(`Tổng tiền cho ${qty} ${drink[0]}: ${price} đồng`);
+        totalBill += price;
+      } else {
+        console.log("Món này không có trong menu. Vui lòng chọn lại!");
+      }
+
+      choice = prompt("Vui lòng chọn món (hoặc nhấn 7 để kết thúc đặt hàng): ");
+    }
+
+    let totalBillElement = document.getElementById('total-bill');
+    totalBillElement.innerText = `Tổng tiền phải trả là: ${totalBill} đồng. Cảm ơn bạn đã đến!`;
+  }
+
+  let drinkMenuElement = document.getElementById('drink-menu');
+  for (let i = 0; i < drinkMenu.length; i++) {
+    let drink = drinkMenu[i];
+    let listItem = document.createElement('li');
+    listItem.innerText = `${i + 1}. ${drink[0]} - Giá: ${drink[1]} đồng`;
+    drinkMenuElement.appendChild(listItem);
+  }
+</script>
+</body>
+</html>
