@@ -45,7 +45,6 @@
                 const orderItem = `${menu[choice][0]} x ${quantity} = ${price} VND`;
                 total += price;
 
-                // display ordered items
                 const li = document.createElement("li");
                 li.textContent = orderItem;
                 document.getElementById("menu").appendChild(li);
@@ -53,8 +52,6 @@
                 alert("Lựa chọn không hợp lệ!");
             }
         }
-
-        // display total bill
         document.getElementById("total").textContent = `Tổng hóa đơn của bạn là ${total} VND`;
     }
 </script>
