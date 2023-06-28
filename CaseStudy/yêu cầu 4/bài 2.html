@@ -5,6 +5,34 @@
     <title>Title</title>
 </head>
 <body>
+<p id="ketqua"></p>
+<script>
+    function demSoLuongKiTuKhacNhau(xau) {
+        let kyTuDaXuatHien = [];
+        let dem = 0;
 
+        for (let i = 0; i < xau.length; i++) {
+            if (!kyTuDaXuatHien.includes(xau[i])) {
+                kyTuDaXuatHien.push(xau[i]);
+                dem++;
+            }
+        }
+
+        return dem;
+    }
+
+    // Sử dụng prompt để nhận xâu từ người dùng
+    let xau = prompt("Nhập xâu kí tự:");
+
+    if (xau !== null && xau.trim() !== "") {
+        let soLuongKetQua = demSoLuongKiTuKhacNhau(xau);
+
+        // Hiển thị kết quả trong một phần tử HTML có id="ketqua"
+        let ketQuaElement = document.getElementById("ketqua");
+        ketQuaElement.textContent = "Số lượng kí tự khác nhau trong xâu: " + soLuongKetQua;
+    } else {
+        alert("Bạn chưa nhập xâu kí tự!");
+    }
+</script>
 </body>
 </html>

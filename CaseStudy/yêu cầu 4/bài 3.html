@@ -5,6 +5,24 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function timSoLuongKiTuChung(xau1, xau2) {
+        let count = 0;
+        for (let i = 0; i < xau1.length; i++) {
+            if (xau2.indexOf(xau1[i]) !== -1) {
+                count++;
+            }
+        }
+        return count;
+    }
 
+
+    const xau1 = prompt("nhập ký tự");
+    const xau2 = prompt("nhập ký tự");
+    const soLuongKiTuChung = timSoLuongKiTuChung(xau1, xau2);
+
+
+    document.write("Số lượng kí tự chung: " + soLuongKiTuChung);
+</script>
 </body>
 </html>

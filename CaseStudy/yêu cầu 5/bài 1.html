@@ -5,6 +5,37 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function tinhTongSoChan(m,) {
+        let matrix = []; // trận
 
+        // Nhập giá trị cho ma trận
+        for (let i = 0; i < m; i++) {
+            matrix[i] = []; // Tạo hàng trong ma trận
+            for (let j = 0; j < n; j++) {
+                matrix[i][j] = parseInt(prompt(`Nhập giá trị tại vị trí [${i}][${j}]:`));
+            }
+        }
+
+        let tong = 0; // Biến lưu tổng
+
+        // Tính tổng các số chẵn
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < n; j++) {
+                if (matrix[i][j] % 2 === 0) {
+                    tong += matrix[i][j];
+                }
+            }
+        }
+
+        return tong; // Tr về tổng
+    }
+
+    let m = parseInt(prompt("Nhập số hàng của ma trận:"));
+    let n = parseInt(prompt("Nhập số cột của ma trận:"));
+    let tongSoChan = tinhTongSoChan(m, n);
+    console.log("Tổng các số chẵn trong ma trận là:", tongSoChan);
+
+</script>
 </body>
 </html>
