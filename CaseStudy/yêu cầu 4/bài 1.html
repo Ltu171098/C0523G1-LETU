@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findLongestWord(input) {
+        let words = input.trim().split(/\s+/);
+        let longestWord = "";
+
+        for(let i = 0; i < words.length; i++) {
+            if(words[i].length > longestWord.length) {
+                longestWord = words[i];
+            }
+        }
+        return longestWord;
+    }
+    function normalizeString(input) {
+        let words = input.trim().split(/\s+/);
+        for(let i = 0; i < words.length; i++) {
+            words[i] = words[i].toLowerCase();
+            words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+        }
+        return words.join(" ");
+    }
+    function main() {
+        const input = prompt("Nhập xâu ký tự:");
+        const normalizedString = normalizeString(input);
+        const longestWord = findLongestWord(normalizedString);
+        console.log(`Xâu gốc: "${input}"`);
+        console.log(`Xâu chuẩn hóa: "${normalizedString}"`);
+        console.log(`Từ dài nhất: "${longestWord}"`);
+    }
+    main();
+
+</script>
+</body>
+</html>
