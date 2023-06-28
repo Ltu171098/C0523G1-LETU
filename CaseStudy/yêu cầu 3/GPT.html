@@ -2,60 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coffee Shop</title>
+    <title>Bài 6</title>
 </head>
 <body>
-<h1>Coffee Shop Menu</h1>
-<ul id="menu"></ul>
-<p id="total"></p>
+<table border="1" style="border-collapse: collapse">
+    <tr>
+        <th colspan="2">MENU NƯỚC</th>
+    </tr>
+    <tr>
+        <td>STT</td>
+        <td>Loại nước (dvt: nghìn đồng)</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Cafe</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Cam vắt</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Nước ép cà rốt</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Nước ép cà chua</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Nước lọc</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Nước dừa</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Thoát gọi món</td>
+    </tr>
+</table>
 
 <script>
-    const menu = {
-        1: ["Cafe", 20000],
-        2: ["Cam vắt", 25000],
-        3: ["Nước ép cà rốt", 30000],
-        4: ["Nước ép cà chua", 35000],
-        5: ["Nước lọc", 10000],
-        6: ["Nước dừa", 15000]
-    };
+    const sTT = [1, 2, 3, 4, 5, 6];
+    const donGia = [10, 20, 20, 20, 8, 25];
+    let sum = 0;
 
-    let total = 0;
-    let choice = 0;
+    function tinhTongThanhToan(chonNuoc) {
+        if (chonNuoc === 7) {
+            alert("Bạn đã chọn thoát gọi món.");
+            return;
+        }
 
-    // display menu items
-    for (const item in menu) {
-        const menuItem = `${item}. ${menu[item][0]} - ${menu[item][1]} VND`;
-        const li = document.createElement("li");
-        li.textContent = menuItem;
-        document.getElementById("menu").appendChild(li);
+        const index = sTT.indexOf(chonNuoc);
+        if (index === -1) {
+            alert("STT không hợp lệ! Vui lòng chọn lại.");
+            return;
+        }
+
+        const soLuong = parseInt(prompt(`Nhập số lượng cho loại nước ${chonNuoc}:`));
+        if (isNaN(soLuong)) {
+            alert("Số lượng không hợp lệ! Vui lòng nhập lại.");
+            return;
+        }
+
+        const thanhTien = donGia[index] * soLuong;
+        alert(`Tổng thanh toán cho loại nước ${chonNuoc} là: ${thanhTien}`);
+        sum += thanhTien;
     }
 
-    while (choice !== 7) {
-        choice = parseInt(prompt("Vui lòng chọn số tương ứng với thức uống bạn muốn gọi:"));
-
-        if (choice === 7) {
+    while (true) {
+        const chonNuoc = parseInt(prompt("Nhập STT loại nước bạn muốn chọn:"));
+        tinhTongThanhToan(chonNuoc);
+        if (chonNuoc === 7) {
             break;
         }
-
-        if (menu[choice]) {
-            let quantity = parseInt(prompt("Vui lòng nhập số lượng:"));
-            let price = menu[choice][1] * quantity;
-            const orderItem = `${menu[choice][0]} x ${quantity} = ${price} VND`;
-            total += price;
-
-            // display ordered items
-            const li = document.createElement("li");
-            li.textContent = orderItem;
-            document.getElementById("menu").appendChild(li);
-        } else {
-            alert("Lựa chọn không hợp lệ!");
-        }
     }
 
-    // display total bill
-    const totalText = `Tổng tiền phải thanh toán là ${total} VND`;
-    document.getElementById("total").textContent = totalText;
-
+    alert(`Tổng hóa đơn của bạn là: ${sum}`);
 </script>
 </body>
 </html>

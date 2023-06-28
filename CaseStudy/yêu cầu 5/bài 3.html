@@ -5,6 +5,52 @@
     <title>Title</title>
 </head>
 <body>
+<div id="result"></div>
 
+<script>
+    function findMaxMin(array) {
+        let max = array[0][0];
+        let min = array[0][0];
+
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (array[i][j] > max) {
+                    max = array[i][j];
+                }
+
+                if (array[i][j] < min) {
+                    min = array[i][j];
+                }
+            }
+        }
+
+        return { max, min };
+    }
+
+    const rows = parseInt(prompt("Nhập số hàng của mảng:"));
+    const cols = parseInt(prompt("Nhập số cột của mảng:"));
+
+    const array = [];
+
+    for (let i = 0; i < rows; i++) {
+        array[i] = new Array(cols);
+
+        for (let j = 0; j < cols; j++) {
+            const value = parseInt(prompt(`Nhập giá trị của phần tử tại hàng ${i} cột ${j}:`));
+
+            if (!isNaN(value)) {
+                array[i][j] = value;
+            } else {
+                alert("Giá trị không hợp lệ! Vui lòng nhập lại.");
+
+            }
+        }
+    }
+
+    const result = findMaxMin(array);
+
+    document.getElementById("result").innerHTML = "Giá trị lớn nhất trong mảng là: " + result.max;
+    document.getElementById("result").innerHTML += "<br>Giá trị nhỏ nhất trong mảng là: " + result.min;
+</script>
 </body>
 </html>

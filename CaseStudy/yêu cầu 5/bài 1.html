@@ -6,20 +6,15 @@
 </head>
 <body>
 <script>
-    function tinhTongSoChan(m,) {
-        let matrix = []; // trận
-
-        // Nhập giá trị cho ma trận
+    function tinhTongSoChan(m,n) {
+        let matrix = [];
         for (let i = 0; i < m; i++) {
-            matrix[i] = []; // Tạo hàng trong ma trận
+            matrix[i] = [];
             for (let j = 0; j < n; j++) {
                 matrix[i][j] = parseInt(prompt(`Nhập giá trị tại vị trí [${i}][${j}]:`));
             }
         }
-
-        let tong = 0; // Biến lưu tổng
-
-        // Tính tổng các số chẵn
+        let tong = 0;
         for (let i = 0; i < m; i++) {
             for (let j = 0; j < n; j++) {
                 if (matrix[i][j] % 2 === 0) {
@@ -27,8 +22,7 @@
                 }
             }
         }
-
-        return tong; // Tr về tổng
+        return tong;
     }
 
     let m = parseInt(prompt("Nhập số hàng của ma trận:"));
